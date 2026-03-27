@@ -28,13 +28,16 @@ Ensure you have **Python 3.8+** installed. It is recommended to use a virtual en
 ### 2. Installation
 Clone the repository and install the required dependencies:
 ```bash
-git clone [https://github.com/YOUR_USERNAME/YOUR_REPO_NAME](https://github.com/YOUR_USERNAME/YOUR_REPO_NAME)
+git clone (https://github.com/Abhi4621/VisionScan-An-Integrated-Document-Processing-Classification-Pipeline.git)
 cd YOUR_REPO_NAME
+
 pip install -r requirements.txt
 3. Usage (Command Line execution)
 Run the scanner by providing the path to an image file:
 python scanner.py --image path/to/your/document.jpg
+
 🛠️ Technical Pipeline
+
 Noise Reduction: Uses a Bilateral Filter to smooth textures while preserving document edges.
 
 Edge Detection: Applies the Canny algorithm to identify the high-gradient boundaries of the paper.
@@ -48,6 +51,7 @@ Binarization: Converts the warped image to black-and-white using Otsu’s method
 Classification: Analyzes the resulting image dimensions to categorize the document type.
 
 📊 Evaluation Parameters
+
 Fully Executable: Supports CLI arguments via argparse.
 
 Engineering Practices: Modular code structure with clear function definitions.
