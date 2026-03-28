@@ -1,59 +1,56 @@
 # VisionScan: Integrated Document Processing & Classification Pipeline
 
-## 📝 Project Overview
-**VisionScan** is a comprehensive Computer Vision application developed for the **Bring Your Own Project (BYOP)** component at VIT Bhopal. The system automates the transition from a raw, angled photograph of a document to a rectified, high-contrast digital scan. 
-
-Beyond simple scanning, the pipeline utilizes mathematical morphology and geometric transformations to classify the document type (e.g., ID Card vs. A4 Page) and assess scan quality.
-
----
-
-## 🎓 Syllabus Mapping (Course Concepts Applied)
-This project demonstrates the practical application of all 5 modules from the Computer Vision course:
-
-| Module | Course Concept | Implementation in Project |
-| :--- | :--- | :--- |
-| **Module 1** | Image Formation & Representation | Perspective Transformation ($3 \times 3$ Matrix) and Resizing. |
-| **Module 2** | Image Enhancement | Bilateral Filtering for noise reduction and Morphological Closing/Erosion. |
-| **Module 3** | Feature & Edge Detection | Canny Edge Detection and Contour Approximation (`approxPolyDP`). |
-| **Module 4** | Image Segmentation | Adaptive Gaussian Thresholding and Otsu’s Binarization. |
-| **Module 5** | Object Classification | Logic-based classification using Aspect Ratio and Histogram Std Dev. |
+**Course:** Computer Vision (BYOP)  
+**Author:** Abhi Pandey (Reg No: 23BAI10909)  
+**Institution:** VIT Bhopal University  
 
 ---
 
-## 🚀 Getting Started
+## 📌 Project Overview
+VisionScan is an end-to-end Computer Vision pipeline designed to automate the digitization of physical documents. It addresses real-world issues like perspective distortion, noise in scanned images, and the need for automated categorization.
 
-### 1. Prerequisites
-Ensure you have **Python 3.8+** installed. It is recommended to use a virtual environment.
+### Key Capabilities:
+* **Document Straightening (Perspective Transform):** Automatically detects document corners and performs a 4-point perspective wrap to create a "top-down" scan view.
+* **Image Enhancement:** Uses adaptive thresholding and Gaussian blurring to remove shadows and highlights for better readability.
+* **OCR (Optical Character Recognition):** Extracts raw text from processed images using Tesseract/EasyOCR.
+* **Classification:** Categorizes documents (e.g., Invoice, ID Card, Letter) based on extracted features and layout analysis.
 
-### 2. Installation
-Clone the repository and install the required dependencies:
-```bash
-git clone (https://github.com/Abhi4621/VisionScan-An-Integrated-Document-Processing-Classification-Pipeline.git)
-cd YOUR_REPO_NAME
+---
 
-pip install -r requirements.txt
-3. Usage (Command Line execution)
-Run the scanner by providing the path to an image file:
-python scanner.py --image path/to/your/document.jpg
+## 🛠️ Computer Vision Pipeline
+The project utilizes several core CV concepts covered in the course:
 
-🛠️ Technical Pipeline
+1.  **Preprocessing:** Grayscale conversion and bilateral filtering to reduce noise while preserving edges.
+2.  **Edge Detection:** Implementation of the **Canny Edge Detection** algorithm to find document boundaries.
+3.  **Contour Analysis:** Utilizing `cv2.findContours()` to identify the largest quadrilateral in the frame.
+4.  **Geometric Transformations:** Applying a **Perspective Transform** matrix to rectify warped document images.
+5.  **Thresholding:** Otsu’s Binarization for high-contrast text extraction.
 
-Noise Reduction: Uses a Bilateral Filter to smooth textures while preserving document edges.
+---
 
-Edge Detection: Applies the Canny algorithm to identify the high-gradient boundaries of the paper.
+## 🚀 Visual Results
+| Input (Warped/Noisy) | Processed (Thresholded) | Final Scanned Output |
+| :---: | :---: | :---: |
+| ![Input](https://via.placeholder.com/200x250?text=Original+Image) | ![Threshold](https://via.placeholder.com/200x250?text=Edge+Detection) | ![Output](https://via.placeholder.com/200x250?text=Final+Scan) |
 
-Contour Analysis: Searches for the largest 4-sided polygon to locate the document corners.
+> **Note:** Replace the placeholder links above with actual screenshots from your `output` folder or notebook to showcase your results!
 
-Perspective Warp: Maps the 4 corners to a new top-down view, correcting camera tilt.
+---
 
-Binarization: Converts the warped image to black-and-white using Otsu’s method for maximum text readability.
+## 📂 Repository Structure
+* `VisionScan_..._(CODE).ipynb`: The primary implementation notebook containing the pipeline logic.
+* `23BAI10909_..._(Report).pdf`: Detailed technical documentation and project reflection.
+* `data/`: Sample input images used for testing.
 
-Classification: Analyzes the resulting image dimensions to categorize the document type.
+---
 
-📊 Evaluation Parameters
+## ⚙️ Setup & Installation
+1. Clone the repository:
+   ```bash
+   git clone [https://github.com/Abhi4621/AbhiPandey-223BAI10909-VisionScan-CV-Pipeline.git](https://github.com/Abhi4621/AbhiPandey-223BAI10909-VisionScan-CV-Pipeline.git)
+   Install dependencies:
 
-Fully Executable: Supports CLI arguments via argparse.
-
-Engineering Practices: Modular code structure with clear function definitions.
-
-Accuracy: Robust against varied lighting and background textures.
+Bash
+pip install opencv-python numpy pytesseract matplotlib
+Run the notebook:
+Open the .ipynb file in Jupyter or Google Colab and execute the cells sequentially.
